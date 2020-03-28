@@ -42,11 +42,59 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map()
     {
+        if ($this->app->isLocal()) {
+            $this->mapInstallRoutes();
+            $this->mapTestingRoutes();
+        }
+
         $this->mapApiRoutes();
+
+        $this->mapAuthRoutes();
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapTutorialRoutes();
+    }
+
+    /**
+     * @return void
+     */
+    protected function mapTestingRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/testing.php'));
+    }
+
+    /**
+     * @return void
+     */
+    protected function mapAuthRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/auth.php'));
+    }
+
+
+    /**
+     * @return void
+     */
+    protected function mapInstallRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/install.php'));
+    }
+
+    /**
+     * @return void
+     */
+    protected function mapTutorialRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/tutorial.php'));
     }
 
     /**
