@@ -17,9 +17,13 @@ Route::get('/', function () {
     return view('homepage');
 })->name('index');;
 
-//Auth::routes();
-
+//TODO: transfer
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/tutorial', 'HomeController@index')->name('tutorial');
+Route::get('/manual', 'HomeController@index')->name('manual');
+
+
+
 Route::get('/fields', 'FieldsController@index')->name('fields');
 Route::get('/village', 'VillageController@index')->name('village');
 Route::get('/overview', 'HomeController@index')->name('overview');

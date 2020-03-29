@@ -13,7 +13,7 @@
     </div>
     <div id="navigation">
         <a href="{{ route('index') }}" class="home">
-            <img src="{{ asset('images/x.gif') }}" alt="{{ config('server.name') }}" />
+            <img src="{{ asset('images/x.gif') }}" alt="{{ config('server.name') }}"/>
         </a>
         <table class="menu">
             <tr>
@@ -73,19 +73,22 @@
             <div class="secondarybox">
                 <div id="screenshots">
                     <h2>@lang('index.screenshots')</h2>
-                    <a href="#last" class="navi prev dynamic_btn"><img class="dynamic_btn" src="{{ asset('images/x.gif') }}" alt="previous" /></a>
+                    <a href="#last" class="navi prev dynamic_btn"><img class="dynamic_btn"
+                                                                       src="{{ asset('images/x.gif') }}"
+                                                                       alt="previous"/></a>
                     <div id="screenshots_preview">
                         <ul id="screenshot_list" class="c1">
-                            <li><a href="#"><img src="{{ asset('images/screenshots/preview/s1s.jpg') }}" /></a></li>
-                            <li><a href="#"><img src="{{ asset('images/screenshots/preview/s2s.jpg') }}" /></a></li>
-                            <li><a href="#"><img src="{{ asset('images/screenshots/preview/s3s.jpg') }}" /></a></li>
-                            <li><a href="#"><img src="{{ asset('images/screenshots/preview/s4s.jpg') }}" /></a></li>
-                            <li><a href="#"><img src="{{ asset('images/screenshots/preview/s5s.jpg') }}" /></a></li>
-                            <li><a href="#"><img src="{{ asset('images/screenshots/preview/s6s.jpg') }}" /></a></li>
-                            <li><a href="#"><img src="{{ asset('images/screenshots/preview/s7s.jpg') }}" /></a></li>
+                            <li><a href="#"><img src="{{ asset('images/screenshots/preview/s1s.jpg') }}"/></a></li>
+                            <li><a href="#"><img src="{{ asset('images/screenshots/preview/s2s.jpg') }}"/></a></li>
+                            <li><a href="#"><img src="{{ asset('images/screenshots/preview/s3s.jpg') }}"/></a></li>
+                            <li><a href="#"><img src="{{ asset('images/screenshots/preview/s4s.jpg') }}"/></a></li>
+                            <li><a href="#"><img src="{{ asset('images/screenshots/preview/s5s.jpg') }}"/></a></li>
+                            <li><a href="#"><img src="{{ asset('images/screenshots/preview/s6s.jpg') }}"/></a></li>
+                            <li><a href="#"><img src="{{ asset('images/screenshots/preview/s7s.jpg') }}"/></a></li>
                         </ul>
                     </div>
-                    <a href="#next" class="navi next"><img class="dynamic_btn" src="{{ asset('images/x.gif') }}" alt="next" /></a>
+                    <a href="#next" class="navi next"><img class="dynamic_btn" src="{{ asset('images/x.gif') }}"
+                                                           alt="next"/></a>
                 </div>
                 <div id="newsbox">
                     <h2>@lang('index.news')</h2>
@@ -105,10 +108,11 @@
         <div class="mask closer"></div>
         <div id="login_list" class="overlay_content">
             <h2>@lang('index.choose_server')</h2>
-            <a href="#" class="closer"><img class="dynamic_img" alt="Close" src="{{ asset('images/x.gif') }}" /></a>
+            <a href="#" class="closer"><img class="dynamic_img" alt="Close" src="{{ asset('images/x.gif') }}"/></a>
             <ul class="world_list">
                 <li class="w_big c3" style="background-image:url('{{ asset('images/choose/en1_big.jpg')}}');">
-                    <a href="{{ route('login') }}"><img class="w_button" src="{{ asset('images/x.gif') }}" alt="World" title="##TOTALUSERS## &nbsp; @lang('players') &nbsp;|&nbsp; ###ACTIVEUSERS### &nbsp; @lang('active') &nbsp;|&nbsp; ###ONLINEUSERS### &nbsp; @lang('online')" /></a>
+                    <a href="{{ route('login') }}"><img class="w_button" src="{{ asset('images/x.gif') }}" alt="World"
+                                                        title="##TOTALUSERS## &nbsp; @lang('players') &nbsp;|&nbsp; ###ACTIVEUSERS### &nbsp; @lang('active') &nbsp;|&nbsp; ###ONLINEUSERS### &nbsp; @lang('online')"/></a>
                     <div class="label_players c0">@lang('index.players'):</div>
                     <div class="label_online c0">@lang('index.online'):</div>
                     <div class="players c1">##TOTALUSERS##</div>
@@ -122,10 +126,24 @@
         <div class="mask closer"></div>
         <div id="signup_list" class="overlay_content">
             <h2>@lang('index.choose_server')</h2>
-            <a href="#" class="closer"><img class="dynamic_img" alt="Close" src="{{ asset('images/x.gif') }}" /></a>
+            <a href="#" class="closer"><img class="dynamic_img" alt="Close" src="{{ asset('images/x.gif') }}"/></a>
             <ul class="world_list">
-                <li class="w_big c4" style="background-image:url('{{ asset('images/choose/en1_big.jpg')}}');">
-                    <a href="{{ route('register') }}"><img class="w_button" src="{{ asset('images/x.gif') }}" alt="World" title="##TOTALUSERS## &nbsp; @lang('players') &nbsp;|&nbsp; ###ACTIVEUSERS### &nbsp; @lang('active') &nbsp;|&nbsp; ###ONLINEUSERS### &nbsp; @lang('online')" /></a>
+{{--                @foreach($servers as $server)--}}
+                    <li class="w_big c4" style="background-image:url('{{ asset('images/choose/en1_big.jpg')}}');">
+                        <a href="{{ route('register') }}"><img class="w_button" src="{{ asset('images/x.gif') }}"
+                                                               alt="World"
+                                                               title="##TOTALUSERS## &nbsp; @lang('players') &nbsp;|&nbsp; ###ACTIVEUSERS### &nbsp; @lang('active') &nbsp;|&nbsp; ###ONLINEUSERS### &nbsp; @lang('online')"/></a>
+                        <div class="label_players c0">@lang('index.players'):</div>
+                        <div class="label_online c0">@lang('index.online'):</div>
+                        <div class="players c1">##TOTALUSERS##</div>
+                        <div class="online c1">###ONLINEUSERS###</div>
+                    </li>
+{{--                @endforeach--}}
+
+                <li class="w_big c4" style="background-image:url('{{ asset('images/choose/en2_big.jpg')}}');">
+                    <a href="{{ route('register') }}"><img class="w_button" src="{{ asset('images/x.gif') }}"
+                                                           alt="World"
+                                                           title="##TOTALUSERS## &nbsp; @lang('players') &nbsp;|&nbsp; ###ACTIVEUSERS### &nbsp; @lang('active') &nbsp;|&nbsp; ###ONLINEUSERS### &nbsp; @lang('online')"/></a>
                     <div class="label_players c0">@lang('index.players'):</div>
                     <div class="label_online c0">@lang('index.online'):</div>
                     <div class="players c1">##TOTALUSERS##</div>
@@ -138,7 +156,7 @@
     <div id="iframe_layer" class="overlay">
         <div class="mask closer"></div>
         <div class="overlay_content">
-            <a href="#" class="closer"><img class="dynamic_img" alt="Close" src="{{ asset('images/x.gif') }}" /></a>
+            <a href="#" class="closer"><img class="dynamic_img" alt="Close" src="{{ asset('images/x.gif') }}"/></a>
             <h2>@lang('index.manual')</h2>
             <div id="frame_box"></div>
             <div class="footer"></div>
@@ -148,14 +166,18 @@
         <div class="mask closer"></div>
         <div class="overlay_content">
             <h3>@lang('index.screenshots')</h3>
-            <a href="#" class="closer"><img class="dynamic_img" alt="Close" src="{{ asset('images/x.gif') }}" /></a>
+            <a href="#" class="closer"><img class="dynamic_img" alt="Close" src="{{ asset('images/x.gif') }}"/></a>
             <div class="screenshot_view">
                 <h4 id="screen_hl"></h4>
-                <img id="screen_view" src="{{ asset('images/x.gif') }}" alt="Screenshot" name="screen_view" />
+                <img id="screen_view" src="{{ asset('images/x.gif') }}" alt="Screenshot" name="screen_view"/>
                 <div id="screen_desc"></div>
             </div>
-            <a href="#prev" class="navi prev" onclick="galarie.showPrev();"><img class="dynamic_img" src="{{ asset('images/x.gif') }}" alt="previous" /></a>
-            <a href="#next" class="navi next" onclick="galarie.showNext();"><img class="dynamic_img" src="{{ asset('images/x.gif') }}" alt="next" /></a>
+            <a href="#prev" class="navi prev" onclick="galarie.showPrev();"><img class="dynamic_img"
+                                                                                 src="{{ asset('images/x.gif') }}"
+                                                                                 alt="previous"/></a>
+            <a href="#next" class="navi next" onclick="galarie.showNext();"><img class="dynamic_img"
+                                                                                 src="{{ asset('images/x.gif') }}"
+                                                                                 alt="next"/></a>
             <div class="footer"></div>
         </div>
     </div>
@@ -167,13 +189,41 @@
 @section('js')
     <script type="text/javascript">
         var screenshots = [
-            {'img':"{{ asset('images/screenshots/s1.png') }}",'hl':"@lang('index.screenshot.1.title')", 'desc':"@lang('index.screenshot.1.description')"},
-            {'img':"{{ asset('images/screenshots/s2.png') }}",'hl':"@lang('index.screenshot.2.title')", 'desc':"@lang('index.screenshot.2.description')"},
-            {'img':"{{ asset('images/screenshots/s3.png') }}",'hl':"@lang('index.screenshot.3.title')", 'desc':"@lang('index.screenshot.3.description')"},
-            {'img':"{{ asset('images/screenshots/s4.png') }}",'hl':"@lang('index.screenshot.4.title')", 'desc':"@lang('index.screenshot.4.description')"},
-            {'img':"{{ asset('images/screenshots/s5.png') }}",'hl':"@lang('index.screenshot.5.title')", 'desc':"@lang('index.screenshot.5.description')"},
-            {'img':"{{ asset('images/screenshots/s6.png') }}",'hl':"@lang('index.screenshot.6.title')", 'desc':"@lang('index.screenshot.6.description')"},
-            {'img':"{{ asset('images/screenshots/s7.png') }}",'hl':"@lang('index.screenshot.7.title')", 'desc':"@lang('index.screenshot.7.description')"}
+            {
+                'img': "{{ asset('images/screenshots/s1.png') }}",
+                'hl': "@lang('index.screenshot.1.title')",
+                'desc': "@lang('index.screenshot.1.description')"
+            },
+            {
+                'img': "{{ asset('images/screenshots/s2.png') }}",
+                'hl': "@lang('index.screenshot.2.title')",
+                'desc': "@lang('index.screenshot.2.description')"
+            },
+            {
+                'img': "{{ asset('images/screenshots/s3.png') }}",
+                'hl': "@lang('index.screenshot.3.title')",
+                'desc': "@lang('index.screenshot.3.description')"
+            },
+            {
+                'img': "{{ asset('images/screenshots/s4.png') }}",
+                'hl': "@lang('index.screenshot.4.title')",
+                'desc': "@lang('index.screenshot.4.description')"
+            },
+            {
+                'img': "{{ asset('images/screenshots/s5.png') }}",
+                'hl': "@lang('index.screenshot.5.title')",
+                'desc': "@lang('index.screenshot.5.description')"
+            },
+            {
+                'img': "{{ asset('images/screenshots/s6.png') }}",
+                'hl': "@lang('index.screenshot.6.title')",
+                'desc': "@lang('index.screenshot.6.description')"
+            },
+            {
+                'img': "{{ asset('images/screenshots/s7.png') }}",
+                'hl': "@lang('index.screenshot.7.title')",
+                'desc': "@lang('index.screenshot.7.description')"
+            }
         ];
         var galarie = new Fx.Screenshots('screen_view', 'screen_hl', 'screen_desc', screenshots);
     </script>
