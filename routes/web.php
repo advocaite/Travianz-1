@@ -14,9 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('homepage');
+})->name('index');;
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/fields', 'FieldsController@index')->name('fields');
+Route::get('/village', 'VillageController@index')->name('village');
+Route::get('/overview', 'HomeController@index')->name('overview');
+Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::get('/buildings', 'HomeController@index')->name('building.show');
+Route::get('/map', 'MapController@index')->name('map');
+Route::get('/statistics', 'StatisticsController@index')->name('statistics');
+Route::get('/reports', 'ReportsController@index')->name('reports');
+Route::get('/reports', 'ReportsController@index')->name('reports.index');
+Route::get('/messages', 'MessagesController@index')->name('messages');
+Route::get('/messages', 'MessagesController@index')->name('messages.index');
+Route::get('/plus', 'PlusController@index')->name('plus');
