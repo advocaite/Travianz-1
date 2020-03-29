@@ -1,73 +1,100 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+    <div id="content" class="login">
+        <h1>
+            <img class="img_login" src="{{ asset('images/x.gif') }}"/>
+        </h1>
+        <h5>
+            <img class="img_u04" src="{{ asset('images/x.gif') }}"/>
+        </h5>
+        <p>@lang('auth/login.cookies')</p>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+        @if (Carbon\Carbon::parse(config('server.start_date') . ' ' . config('server.start_time')) >= now())
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <br/>
+            <div
+                style="text-align: center; font-size: 25px">{{ config('server.name') }} @lang('auth/login.will_start_in')
+                :
             </div>
-        </div>
+            <div class="timer" id="activation_time">{{ $serverStartCountdown }}</div>
+
+        @else
+
+            <form method="post" action="login">
+                @csrf
+                <script>
+                    Element.implement({
+                        showOrHide: function (imgid) {
+                            if (this.getStyle('display') == 'none') {
+                                if (imgid != '') $(imgid).className = 'open';
+                            } else if (imgid != '') $(imgid).className = 'close';
+                            this.toggleClass('hide');
+                        }
+                    });
+                </script>
+                <table id="login_form">
+                    <tbody>
+                    <tr class="top">
+                        <th>@lang('auth/login.username'):</th>
+                        <td>
+                            <input class="text" type="text" name="name" pattern=".{6,20}"
+                                   value="{{ old('name', Cookie::get('name')) }}" required/>
+                            @if ($errors->has('name'))
+                                <span class="error">{{ $errors->first('name') }}</span>
+                        </td>
+                        @endif
+                    </tr>
+                    <tr class="btm">
+                        <th>@lang('auth/login.password'):</th>
+                        <td>
+                            <input class="text" type="password" name="password" pattern=".{8,100}"
+                                   value="{{ old('password') }}" required/>
+                            @if ($errors->has('password'))
+                                <span class="error">{{ $errors->first('password') }}</span>
+                        </td>
+                        @endif
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p class="btn">
+                    <button class="trav_buttons" name="action" value="login">@lang('auth/login.title')</button>
+                </p>
+            </form>
+        @endif
+
+        @if (session('verified'))
+            <p class="error_box">
+                <span class="success">@lang('auth/login.email_verified')</span>
+            </p>
+        @endif
+
+        @if (session()->has('resetPassword'))
+            <p class="error_box">
+                <span class="success">{{ session('resetPassword') }}</span>
+            </p>
+        @endif
+
+        @if ($errors->has('email'))
+            <p class="error_box">
+                <span class="error">{{ $errors->first('email') }}</span>
+                <br>@lang('auth/login.email_follow')
+                <br>
+                <a href="{{ route('verification.notice') }}">@lang('auth/login.resend_activation_code')</a>
+            </p>
+        @elseif ($errors->has('vacation'))
+            <p class="error_box">
+                <span class="error">{{ $errors->first('vacation') }}</span>
+            </p>
+        @elseif ($errors->has('password'))
+            <p class="error_box">
+                <span class="error">@lang('auth/login.password_forgotten')</span>
+                <br>@lang('auth/login.password_can_reset')
+                <br>
+                <a href="{{ route('password.request') }}">@lang('auth/login.password_reset_password')</a>
+            </p>
+        @endif
+
     </div>
-</div>
 @endsection

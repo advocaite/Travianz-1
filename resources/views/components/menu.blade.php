@@ -41,7 +41,7 @@
         @endif
     </p>
 
-{{--    @if (Auth::check())--}}
+    @if (Auth::check())
         <p>
             <a href="{{ '' }}">@lang('menu.forum')</a>
             <a href="{{ '' }}"><b><span class="plus_g">P</span><span class="plus_o">l</span><span
@@ -49,6 +49,6 @@
                         class="plus_o">s</span></b></a>
             <a href="{{ '' }}">@lang('menu.support')</a>
         </p>
-{{--    @endif--}}
+    @endif
 
 </div>
