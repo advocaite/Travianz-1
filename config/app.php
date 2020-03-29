@@ -176,6 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
 
+        MLL\GraphQLPlayground\GraphQLPlaygroundServiceProvider::class,
+
     ],
 
     /*
