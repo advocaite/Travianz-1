@@ -25,6 +25,9 @@
                 <td><a href="{{ route('manual.tribes') }}"><span>@lang('index.manual')</span></a></td>
                 <td><a href="#" class="signup_link mark"><span>@lang('index.register')</span></a></td>
                 <td><a href="#" class="login_link"><span>@lang('index.login')</span></a></td>
+
+                <td><a href="{{ url('locale/en') }}" ><i class="fa fa-language"></i> EN</a></td>
+                <td><a href="{{ url('locale/sl') }}" ><i class="fa fa-language"></i> SI</a></td>
             </tr>
         </table>
     </div>

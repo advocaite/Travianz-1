@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('homepage');
-})->name('index');;
+})->name('index');
+
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
 
 //TODO: transfer
 Route::get('/home', 'HomeController@index')->name('home');
