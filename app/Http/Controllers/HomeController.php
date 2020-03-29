@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Languages;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,8 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $languages = Languages::all();
         $village = [];
-        return view('fields', compact('village'));
+        return view('homepage', compact(['village', 'languages']));
     }
 
 }
