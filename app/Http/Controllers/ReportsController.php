@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class ReportsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,6 +24,6 @@ class HomeController extends Controller
     public function index()
     {
         $village = [];
-        return view('fields', compact('village'));
+        return view('reports', compact('village'));
     }
 }
