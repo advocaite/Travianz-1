@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3b05e7a9a68257a04a94d474fb02c9da",
+    "content-hash": "5152f6eebd199eb67f4a1efac5e0ede8",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4677,6 +4677,52 @@
                 "test"
             ],
             "time": "2016-01-20T08:20:44+00:00"
+        },
+        {
+            "name": "marvinrabe/laravel-graphql-test",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/marvinrabe/laravel-graphql-test.git",
+                "reference": "70e9c7b4f49c1aaa9c5d7805a829b2d26e671862"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/marvinrabe/laravel-graphql-test/zipball/70e9c7b4f49c1aaa9c5d7805a829b2d26e671862",
+                "reference": "70e9c7b4f49c1aaa9c5d7805a829b2d26e671862",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": ">=5.5.0",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MarvinRabe\\LaravelGraphQLTest\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marvin Rabe",
+                    "email": "marvin.rabe@gmail.com"
+                }
+            ],
+            "description": "Provides you with a simple GraphQL testing trait.",
+            "keywords": [
+                "graphql",
+                "laravel",
+                "php",
+                "testing"
+            ],
+            "time": "2020-03-05T12:16:38+00:00"
         },
         {
             "name": "mll-lab/laravel-graphql-playground",
