@@ -1,12 +1,12 @@
 # Travianz
-###Important:  
+### Important:  
 
-Contributors  always use develop brunch to develop!
+Contributors, always use **develop** branch to develop!
 
-from develop you do   
+From develop, you have to do:
 
     git checkout -b feature/name_of_work_you_are_doing    
   
-an example:   
+For example:   
 
     git checkout -b feature/auth
