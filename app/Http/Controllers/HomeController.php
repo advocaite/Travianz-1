@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Languages;
+use App\Models\Server;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,7 +27,8 @@ class HomeController extends Controller
     {
         $languages = Languages::all();
         $village = [];
-        return view('homepage', compact(['village', 'languages']));
+        $servers = Server::all();
+        return view('homepage', compact(['village', 'languages', 'servers']));
     }
 
 }

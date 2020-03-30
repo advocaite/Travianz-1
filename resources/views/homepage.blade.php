@@ -114,14 +114,18 @@
             <h2>@lang('index.choose_server')</h2>
             <a href="#" class="closer"><img class="dynamic_img" alt="Close" src="{{ asset('images/x.gif') }}"/></a>
             <ul class="world_list">
-                <li class="w_big c3" style="background-image:url('{{ asset('images/choose/en1_big.jpg')}}');">
-                    <a href="{{ route('login') }}"><img class="w_button" src="{{ asset('images/x.gif') }}" alt="World"
-                                                        title="##TOTALUSERS## &nbsp; @lang('players') &nbsp;|&nbsp; ###ACTIVEUSERS### &nbsp; @lang('active') &nbsp;|&nbsp; ###ONLINEUSERS### &nbsp; @lang('online')"/></a>
-                    <div class="label_players c0">@lang('index.players'):</div>
-                    <div class="label_online c0">@lang('index.online'):</div>
-                    <div class="players c1">##TOTALUSERS##</div>
-                    <div class="online c1">###ONLINEUSERS###</div>
-                </li>
+                @foreach($servers as $server)
+                    <li class="w_big c3"
+                        style="background-image:url('{{ asset('images/choose/en'.$server->id.'_big.jpg')}}');">
+                        <a href="{{ route('login') }}"><img class="w_button" src="{{ asset('images/x.gif') }}"
+                                                            alt="World"
+                                                            title="##TOTALUSERS## &nbsp; @lang('players') &nbsp;|&nbsp; ###ACTIVEUSERS### &nbsp; @lang('active') &nbsp;|&nbsp; ###ONLINEUSERS### &nbsp; @lang('online')"/></a>
+                        <div class="label_players c0">@lang('index.players'):</div>
+                        <div class="label_online c0">@lang('index.online'):</div>
+                        <div class="players c1">##TOTALUSERS##</div>
+                        <div class="online c1">###ONLINEUSERS###</div>
+                    </li>
+                @endforeach
             </ul>
             <div class="footer"></div>
         </div>
@@ -132,27 +136,19 @@
             <h2>@lang('index.choose_server')</h2>
             <a href="#" class="closer"><img class="dynamic_img" alt="Close" src="{{ asset('images/x.gif') }}"/></a>
             <ul class="world_list">
-                {{--                @foreach($servers as $server)--}}
-                <li class="w_big c4" style="background-image:url('{{ asset('images/choose/en1_big.jpg')}}');">
-                    <a href="{{ route('register') }}"><img class="w_button" src="{{ asset('images/x.gif') }}"
-                                                           alt="World"
-                                                           title="##TOTALUSERS## &nbsp; @lang('players') &nbsp;|&nbsp; ###ACTIVEUSERS### &nbsp; @lang('active') &nbsp;|&nbsp; ###ONLINEUSERS### &nbsp; @lang('online')"/></a>
-                    <div class="label_players c0">@lang('index.players'):</div>
-                    <div class="label_online c0">@lang('index.online'):</div>
-                    <div class="players c1">##TOTALUSERS##</div>
-                    <div class="online c1">###ONLINEUSERS###</div>
-                </li>
-                {{--                @endforeach--}}
+                @foreach($servers as $server)
+                    <li class="w_big c4"
+                        style="background-image:url('{{ asset('images/choose/en'.$server->id.'_big.jpg')}}');">
+                        <a href="{{ route('register') }}"><img class="w_button" src="{{ asset('images/x.gif') }}"
+                                                               alt="World"
+                                                               title="##TOTALUSERS## &nbsp; @lang('players') &nbsp;|&nbsp; ###ACTIVEUSERS### &nbsp; @lang('active') &nbsp;|&nbsp; ###ONLINEUSERS### &nbsp; @lang('online')"/></a>
+                        <div class="label_players c0">@lang('index.players'):</div>
+                        <div class="label_online c0">@lang('index.online'):</div>
+                        <div class="players c1">##TOTALUSERS##</div>
+                        <div class="online c1">###ONLINEUSERS###</div>
+                    </li>
+                @endforeach
 
-                <li class="w_big c4" style="background-image:url('{{ asset('images/choose/en2_big.jpg')}}');">
-                    <a href="{{ route('register') }}"><img class="w_button" src="{{ asset('images/x.gif') }}"
-                                                           alt="World"
-                                                           title="##TOTALUSERS## &nbsp; @lang('players') &nbsp;|&nbsp; ###ACTIVEUSERS### &nbsp; @lang('active') &nbsp;|&nbsp; ###ONLINEUSERS### &nbsp; @lang('online')"/></a>
-                    <div class="label_players c0">@lang('index.players'):</div>
-                    <div class="label_online c0">@lang('index.online'):</div>
-                    <div class="players c1">##TOTALUSERS##</div>
-                    <div class="online c1">###ONLINEUSERS###</div>
-                </li>
             </ul>
             <div class="footer"></div>
         </div>
