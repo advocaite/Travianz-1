@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Languages;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,6 +14,7 @@ class CreateServersTable extends Migration
      */
     public function up()
     {
+        //NOTE: language table need to be before server table setup to work
         Schema::create('servers', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('language_id')->default(1);
@@ -26,6 +28,7 @@ class CreateServersTable extends Migration
 
             //TODO: make pivot for user and servers  -  one user can attach to many servers
             $table->index('language_id');
+//            $table->foreign('language_id')->references('id')->on('languages')->default(Languages::DEFAULT_ID);
         });
     }
 

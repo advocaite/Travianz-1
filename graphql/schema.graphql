@@ -9,6 +9,33 @@ type Query {
     user(id: ID @eq): User @find
 
     languages: [Languages!] @all
+    servers: [Server!] @all
+    "Get single user by unique ID"
+    language(id: ID @eq): Languages @find
+    server(id: ID @eq): Server @find
+}
+
+type Server {
+    id: ID!
+    language_id: Int!
+    language: Language
+    name: String!
+    player_limit: Int!
+    start_at: DateTime!
+    locked: Boolean!
+    state: Boolean!
+    created_at: DateTime!
+    updated_at: DateTime!
+}
+
+type Language {
+    id: ID!
+    valute_id: Int!
+    name: String!
+    name_short: String!
+    country_code: String!
+    created_at: DateTime!
+    updated_at: DateTime!
 }
 
 type Languages {
