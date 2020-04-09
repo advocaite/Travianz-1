@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\UpdateWoodResource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FieldsController extends Controller
 {
@@ -23,6 +25,7 @@ class FieldsController extends Controller
      */
     public function index()
     {
+        UpdateWoodResource::dispatch(Auth::user());
         $village = [];
         return view('fields', compact('village'));
     }

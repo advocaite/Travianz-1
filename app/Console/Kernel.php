@@ -24,7 +24,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        // helper: for manual run in CMD : php artisan schedule:run
+         $schedule->command('game:update-wood-resource')->everyMinute();
     }
 
     /**
