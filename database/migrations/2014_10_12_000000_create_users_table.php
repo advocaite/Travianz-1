@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->bigInteger('wood')->default(800); //TODO: fix this to proper table structure
+            $table->bigInteger('iron')->default(800); //TODO: fix this to proper table structure
+            $table->bigInteger('clay')->default(800); //TODO: fix this to proper table structure
+            $table->bigInteger('crop')->default(800); //TODO: fix this to proper table structure
             $table->rememberToken();
             $table->timestamps();
         });
