@@ -1,0 +1,7 @@
+{
+    "app": {
+        "name": "Coin system",
+        "version": "1.0.0",
+        "description" : "Change your resource system into coin for armory"
+    }
+}

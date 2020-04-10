@@ -1,0 +1,7 @@
+{
+    "app": {
+        "name": "Natural disaster",
+        "version": "1.0.0",
+        "description" : "Random earthquakes  storm flods etc..."
+    }
+}
