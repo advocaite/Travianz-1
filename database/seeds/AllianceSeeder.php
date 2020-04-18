@@ -14,6 +14,6 @@ class AllianceSeeder extends Seeder
     {
         Alliance::truncate();
 
-        $alliances = factory(Alliance::class, 5)->make();
+        $alliances = factory(Alliance::class, 10)->make();
     }
 }
