@@ -31,3 +31,7 @@ Route::get('/reports', 'ReportsController@index')->name('reports.index');
 Route::get('/messages', 'MessagesController@index')->name('messages');
 Route::get('/messages', 'MessagesController@index')->name('messages.index');
 Route::get('/plus', 'PlusController@index')->name('plus');
+
+Route::prefix('paypal')->name('paypal.')->group(function () {
+    Route::post('/ipnNotify', 'PaypalController@postNotify')->name('postNotify');
+});

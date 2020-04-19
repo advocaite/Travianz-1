@@ -178,6 +178,11 @@ return [
 
         MLL\GraphQLPlayground\GraphQLPlaygroundServiceProvider::class,
 
+        /*
+         * Paypal service provider
+         */
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class
+
     ],
 
     /*
@@ -229,6 +234,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        /*
+         * Paypal Alias
+         */
+        'PayPal' => Srmklive\PayPal\Facades\PayPal::class
 
     ],
 
